@@ -150,33 +150,33 @@
 
 
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group">
 
-                    <a ng-click="goPage(1)"  type="button" class="btn btn-default">第一页</a>
-                    <a ng-click="goPage(data.prePage)" type="button" class="btn btn-default">上一页</a>
+                        <a ng-click="goPage(1)"  type="button" class="btn btn-default">第一页</a>
+                        <a ng-click="goPage(data.prePage)" type="button" class="btn btn-default">上一页</a>
 
-                    <a ng-click="goPage(data.nextPage)" type="button" class="btn btn-default">下一页</a>
-                    <a ng-click="goPage(data.totalPage)" type="button" class="btn btn-default">最后一页</a>
-                    <%--ng-options="x for x in data.pageNums"--%>
-                    <select class="form-control input-xsmall" ng-model="i"   ng-init="i='1'"  ng-change="goPage(i)">
-                        <%--<option value="" class="" selected="selected">1</option>--%>
-                        <option ng-repeat="i in data.pageNums"  value="{{i}}">{{i}}</option>
-                    </select>
+                        <a ng-click="goPage(data.nextPage)" type="button" class="btn btn-default">下一页</a>
+                        <a ng-click="goPage(data.totalPage)" type="button" class="btn btn-default">最后一页</a>
+                        <%--ng-options="x for x in data.pageNums"--%>
+                        <select class="form-control input-xsmall" ng-model="i"   ng-init="i='1'"  ng-change="goPage(i)">
+                            <%--<option value="" class="" selected="selected">1</option>--%>
+                            <option ng-repeat="i in data.pageNums"  value="{{i}}">{{i}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+
+            <!-- END DASHBOARD STATS 1-->
+
         </div>
-
-        <!-- END DASHBOARD STATS 1-->
-
+        <!-- END CONTENT BODY -->
     </div>
-    <!-- END CONTENT BODY -->
-</div>
-<!-- END CONTENT -->
-<!-- BEGIN QUICK SIDEBAR -->
-<jsp:include page="../include/common_quick_sidebar.jsp"/>
-<!-- END QUICK SIDEBAR -->
+    <!-- END CONTENT -->
+    <!-- BEGIN QUICK SIDEBAR -->
+    <jsp:include page="../include/common_quick_sidebar.jsp"/>
+    <!-- END QUICK SIDEBAR -->
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->

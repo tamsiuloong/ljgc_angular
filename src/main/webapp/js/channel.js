@@ -63,7 +63,8 @@ app.controller('channelCtrl', function($scope, $http) {
                 'description':$scope.description,
                 'pageNo':$scope.data.pageNo,
                 'description':$scope.data.pageSize,
-                'keyWord':$scope.keyWord
+                'keyWord':$scope.keyWord,
+                'content':$scope.content
             }
         }) .success(function (response) {
             //更新本地list数据
