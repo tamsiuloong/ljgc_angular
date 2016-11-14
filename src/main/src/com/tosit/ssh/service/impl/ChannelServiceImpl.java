@@ -1,6 +1,7 @@
 package com.tosit.ssh.service.impl;
 
 import com.tosit.ssh.dao.ChannelDao;
+import com.tosit.ssh.entity.Channel;
 import com.tosit.ssh.service.ChannelService;
 import com.tosit.ssh.utils.page.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,20 @@ public class ChannelServiceImpl implements ChannelService{
 
     public Boolean delete(Integer id) {
         return channelDao.delete(id);
+    }
+
+    public Boolean update(Channel channel) {
+        Boolean result = false;
+        channelDao.merge(channel);
+        result = true;
+        return result;
+    }
+
+    public Boolean addChannel(Channel channel) {
+        Boolean result = false;
+        channelDao.merge(channel);
+        result = true;
+        return result;
     }
 
 

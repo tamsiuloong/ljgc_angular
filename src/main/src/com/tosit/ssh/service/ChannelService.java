@@ -1,5 +1,6 @@
 package com.tosit.ssh.service;
 
+import com.tosit.ssh.entity.Channel;
 import com.tosit.ssh.utils.page.Pagination;
 
 /**
@@ -16,4 +17,8 @@ public interface ChannelService {
     Pagination queryForPage(String keyWord, Integer pageNo, Integer pageSize);
 
     Boolean delete(Integer id);
+
+    Boolean update(Channel channel);
+
+    Boolean addChannel(Channel channel);
 }

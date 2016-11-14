@@ -1,5 +1,6 @@
 package com.tosit.ssh.web.admin;
 
+import com.tosit.ssh.entity.Channel;
 import com.tosit.ssh.service.ChannelService;
 import com.tosit.ssh.utils.page.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,18 @@ public class ChannelController {
 
         result = channelService.delete(id);
         return result;
+    }
+
+    @RequestMapping(value="/channel",method=RequestMethod.PUT)
+    public @ResponseBody Boolean update(Channel channel){
+        Boolean  result = channelService.update(channel);
+        return result;
+    }
+
+
+    @RequestMapping(value="/channel",method=RequestMethod.POST)
+    public @ResponseBody Pagination add(Channel channel, Integer pageNo, Integer  pageSize, String keyWord, ModelMap map){
+        Boolean  result = channelService.addChannel(channel);
+        return list(pageNo,pageSize,keyWord,map);
     }
 }

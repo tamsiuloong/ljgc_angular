@@ -28,7 +28,7 @@ public class ChannelDaoImpl implements ChannelDao {
 
         //获取分页列表数据
          keyWord = keyWord==null?"%":keyWord;
-        List list = sessionFactory.getCurrentSession().createQuery("from Channel c where c.name like :n or c.description like :d")
+        List list = sessionFactory.getCurrentSession().createQuery("from Channel c where c.name like :n or c.description like :d order by c.id desc")
         .setParameter("n","%"+keyWord+"%")
         .setParameter("d","%"+keyWord+"%")
                 .setFirstResult(result.getFirstResult())
@@ -42,6 +42,11 @@ public class ChannelDaoImpl implements ChannelDao {
         Session session = sessionFactory.getCurrentSession();
         session.delete(session.get(Channel.class,id));
         return true;
+    }
+
+    public Channel merge(Channel channel) {
+        sessionFactory.getCurrentSession().merge(channel);
+        return channel;
     }
 
 
