@@ -31,7 +31,7 @@
                 </form>
                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
             </li>
-            <li class="nav-item <%if(request.getHeader("Referer").contains("admin/index.jsp")){%>start active open<%}%>">
+            <li class="nav-item <%if(request.getRequestURI().contains("admin/index.jsp")){%>start active open<%}%>">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">统计</span>
@@ -39,7 +39,7 @@
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item <%if(request.getHeader("Referer").contains("admin/index.jsp")){%>start active open<%}%>">
+                    <li class="nav-item <%if(request.getRequestURI().contains("admin/index.jsp")){%>start active open<%}%>">
                         <a href="admin/index.jsp" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">日统计</span>
@@ -63,19 +63,19 @@
                 </ul>
             </li>
 
-            <li class="nav-item  <%if(request.getHeader("Referer").contains("channel")){%>start active open<%}%> ">
+            <li class="nav-item  <%if(request.getRequestURI().contains("channel")){%>start active open<%}%> ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
                     <span class="title">栏目管理</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item <%if(request.getHeader("Referer").contains("channel/list")){%>start active open<%}%> ">
+                    <li class="nav-item <%if(request.getRequestURI().contains("channel/list")){%>start active open<%}%> ">
                         <a href="admin/channel/list.jsp" class="nav-link ">
                             <span class="title">查看栏目</span>
                         </a>
                     </li>
-                    <li class="nav-item  <%if(request.getHeader("Referer").contains("channel/add")){%>start active open<%}%>">
+                    <li class="nav-item  <%if(request.getRequestURI().contains("channel/add")){%>start active open<%}%>">
                         <a href="admin/channel/add.jsp" class="nav-link ">
                             <span class="title">添加栏目</span>
                         </a>

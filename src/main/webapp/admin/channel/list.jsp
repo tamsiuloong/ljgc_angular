@@ -736,6 +736,7 @@
 
 <jsp:include page="../include/common_footer.html"/>
 <jsp:include page="../include/common_resouces.html"/>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 
 <script>
     var app = angular.module('myApp', []);
