@@ -20,7 +20,7 @@
          </head>
     <!-- END HEAD -->
 
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"   ng-app="myApp" ng-controller="channelCtrl">
         <!-- BEGIN HEADER-->
         <jsp:include page="include/common_head.jsp"/>
 
@@ -32,15 +32,8 @@
         <div class="page-container">
 
             <!-- BEGIN SIDEBAR-->
-            <script type="text/javascript">
-                $.ajax({
-                    type: "get",
-                    url: "admin/include/common_sidebar.jsp",
-                    success: function(msg){
-                        $("div .page-content-wrapper").before(msg);
-                    }
-                });
-            </script>
+            <div class="page-sidebar-wrapper"  ng-bind-html="sidebar | to_trusted"></div>
+
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
@@ -2301,28 +2294,29 @@
         </div>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $.ajax({
-                    type: "get",
-                    url: "admin/include/common_footer.html",
-                    success: function(msg){
-                        $("body").append(msg);
-                    }
-                });
-
-                $.ajax({
-                    type: "get",
-                    url: "admin/include/common_resouces.html",
-                    success: function(msg){
-                        $("meta[name='author']").after(msg);
-                    }
-                });
-            });
-        </script>
-
+        <jsp:include page="include/common_footer.html"/>
+        <jsp:include page="include/common_resouces.html"/>
         <!-- END FOOTER -->
         <!-- END THEME LAYOUT SCRIPTS -->
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('channelCtrl', function($scope, $http) {
+                $http({
+                    method: 'GET',
+                    url: 'admin/include/common_sidebar.jsp',
+                    headers: {'Content-Type': 'text/html;charset=UTF-8','Accept':'text/plain'}
+                }) .success(function (response) {
+                    $scope.sidebar =response;
+                });
+            });
+            app.filter('to_trusted', ['$sce', function ($sce) {
+                return function (text) {
+                    return $sce.trustAsHtml(text);
+                };
+            }]);
+        </script>
+
+
     </body>
 
 </html>

@@ -39,17 +39,7 @@
 <div class="page-container">
     <!-- BEGIN SIDEBAR-->
     <!-- BEGIN SIDEBAR-->
-    <script type="text/javascript">
-        $.ajax({
-            type: "get",
-            url: "admin/include/common_sidebar.jsp",
-            success: function(msg){
-                $("div .page-content-wrapper").before(msg);
-            }
-        });
-    </script>
-
-
+    <jsp:include page="../include/common_sidebar.jsp"/>
     <!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper" ng-app="myApp" ng-controller="channelCtrl">
@@ -743,25 +733,10 @@
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $.ajax({
-            type: "get",
-            url: "admin/include/common_footer.html",
-            success: function(msg){
-                $("body").append(msg);
-            }
-        });
 
-        $.ajax({
-            type: "get",
-            url: "admin/include/common_resouces.html",
-            success: function(msg){
-                $("meta[name='author']").after(msg);
-            }
-        });
-    });
-</script>
+<jsp:include page="../include/common_footer.html"/>
+<jsp:include page="../include/common_resouces.html"/>
+
 <script>
     var app = angular.module('myApp', []);
     app.controller('channelCtrl', function($scope, $http) {
@@ -816,6 +791,7 @@
 
 
 </script>
+
 <!-- END FOOTER -->
 <!-- END THEME LAYOUT SCRIPTS -->
 </body>

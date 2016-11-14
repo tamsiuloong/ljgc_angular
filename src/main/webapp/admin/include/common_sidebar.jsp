@@ -1,6 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<div class="page-sidebar-wrapper">
     <!-- BEGIN SIDEBAR -->
     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
     <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
@@ -33,7 +31,7 @@
                 </form>
                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
             </li>
-            <li class="nav-item <%if(request.getHeader("Referer").contains("admin/index.html")){%>start active open<%}%>">
+            <li class="nav-item <%if(request.getHeader("Referer").contains("admin/index.jsp")){%>start active open<%}%>">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">统计</span>
@@ -41,7 +39,7 @@
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item <%if(request.getHeader("Referer").contains("admin/index.html")){%>start active open<%}%>">
+                    <li class="nav-item <%if(request.getHeader("Referer").contains("admin/index.jsp")){%>start active open<%}%>">
                         <a href="admin/index.jsp" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">日统计</span>
@@ -73,12 +71,12 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item <%if(request.getHeader("Referer").contains("channel/list")){%>start active open<%}%> ">
-                        <a href="ljgcadmin/channel/list" class="nav-link ">
+                        <a href="admin/channel/list.jsp" class="nav-link ">
                             <span class="title">查看栏目</span>
                         </a>
                     </li>
                     <li class="nav-item  <%if(request.getHeader("Referer").contains("channel/add")){%>start active open<%}%>">
-                        <a href="admin/channel/add.html" class="nav-link ">
+                        <a href="admin/channel/add.jsp" class="nav-link ">
                             <span class="title">添加栏目</span>
                         </a>
                     </li>
@@ -140,4 +138,3 @@
         <!-- END SIDEBAR MENU -->
     </div>
     <!-- END SIDEBAR -->
-</div>
